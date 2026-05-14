@@ -32,4 +32,4 @@ This mini project is a custom PCB for a battery powered recording camera using a
 - `docs/` - Pinout, design notes, and documentation
 - `sourcing/` - Where to source components 
 - `firmware/` - Future ESP32 firmware
-- `casing/solidworks` - Casing for the Camera
+- `casing/solidworks/` - Casing for the Camera
