@@ -24,36 +24,35 @@ This mini project is a custom PCB for a battery powered recording camera using a
 - Storage: microSD, optional eMMC footprint
 - User controls: reset, boot, start/stop recording
 
-### Main Design Blocks
-
-| Block | Component / Method | Purpose |
-|---|---|---|
-| Power Input | USB-C | Provides charging input |
-| Battery | Single-cell LiPo | Powers the device |
-| Charger | LiPo charging IC | Charges the battery from USB-C |
-| Regulator | 3.3 V LDO | Powers ESP32, camera, and storage |
-| MCU | ESP32-S3-WROOM-1 | Main controller |
-| Camera | OV2640 ribbon camera module | Captures video |
-| Storage | microSD + optional eMMC | Saves video data |
-| Controls | Reset, boot, start/stop button | User control and programming |
 
 ---
 
 
 ## 3. Block Diagram
 
-![Block Diagram](hardware/images/block_diagram.png)
+<img width="1261" height="888" alt="image" src="https://github.com/user-attachments/assets/8dd7ad94-7d2d-44f0-be11-53f7d763d030" />
 
-The block diagram shows the major subsystems of the camera PCB. The ESP32-S3 acts as the central controller. It receives image data from the OV2640 camera module, manages storage through the microSD card and optional eMMC footprint, and handles user inputs such as reset, boot, and start/stop recording. Power is supplied from a LiPo battery, with USB-C used for charging.
+
+This block diagram represents the major systems of this PCB. The power comes in as 5v into USB-C, which goes into a LiPo battery charging module. At that point, voltage drops to around a nominal value of 3.7V because of the MCP. This circuit is one way and therefore USB-C only charges the battery, not powering the ESP. The LiPo battery is rated to output around ___V, and is then passed through a 3.3V voltage regulator. I used the MAX604 LPO, which I'll explain later. The ESP32-S3-WROOM1 is the main controller which will operate fine from ~2.9-3.3V at __mA. 
+
+This PCB has two means of storage: A MicroSD, or eMMC. To keep the SD card separate from the BOM, I just used a MicroSD card detector. To keep the eMMC separate from the BOM, I used a custom eMMC footprint that I found off SnapMagic.
+
+For the camera module, I went with the OV2640 because it was the easiest camera to work with. It operatres fine under ___ which is what we expect to be at. The camera also supports 800×600 at 30 FPS, which is already much better than the requirements. 
+
+Finally, we have three push switches for start/stop recording, boot, and reset.
 
 
 ---
 
 ## 4. Schematic Design
 
-![Schematic Preview](hardware/images/schematic_preview.png)
+
 
 The schematic is divided into several major sections: power, ESP32-S3, camera interface, storage, and user controls. The power section includes USB-C input, LiPo charging, and 3.3 V regulation. The ESP32-S3 section contains the main microcontroller module and its required support connections. The camera section connects the OV2640 ribbon camera module to the ESP32-S3. The storage section includes both microSD and optional eMMC support.
+
+
+
+
 
 The full KiCad schematic files can be found here:
 
