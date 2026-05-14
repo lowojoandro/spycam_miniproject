@@ -1,7 +1,9 @@
 # ESP32-S3 Spy Camera PCB
 
 This mini project is a custom PCB for a battery powered recording camera using an ESP32-S3.
-The download to the files are in the hardware folder.
+The download to the files are in the hardware folder. The firmware folder contains the code for the ESP32, camera, buttons, and storage. 
+
+**Note: I did not work on the firmware side yet, partly because I'd like to actually have the PCB first before I start coding.
 
 
 ## Main Requirements
