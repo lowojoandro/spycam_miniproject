@@ -33,7 +33,7 @@ This mini project is a custom PCB for a battery powered recording camera using a
 ### Normal Sourcing
 
 This table lists the current PCB components, estimated prices, and target pricing for keeping the project under the $25 BOM goal.
-This NOT using parts sourced from China specifically.
+This is NOT using parts sourced from China specifically.
 
 - **Current estimated total:** $43.21
 - **Target estimated total:** $16.86
@@ -158,7 +158,18 @@ Here are some youtube videos that I used to help along:
 -https://www.youtube.com/watch?v=Ah65M31v87c
 
 
+### Full View of Schematic
 
+<img width="907" height="607" alt="image" src="https://github.com/user-attachments/assets/62841585-c328-469a-b9e5-9706b14695b0" />  
+
+
+## ERC Passing
+
+<img width="710" height="455" alt="image" src="https://github.com/user-attachments/assets/4f619369-4c5e-4be2-ad6b-5cdb8933712b" />    
+
+
+
+## 4. Schematic Breakdown
 
 
 ### USB-C Power Entry
@@ -265,9 +276,9 @@ The bottom circuit is start/stop button. High is start, low is stop.
 
 
 
-## 4. PCB Views
+## 5. PCB Views
 
-Note: The biggest thing here is that I did not finish applying the routes.
+Note: The biggest thing here is that I did not finish applying the routes. Because of this, it does not pass the DRC test yet.
 
 I used 4 layers for this PCB to sort of dedicate each layer to a solid reference plane, which should reduce noise and increase stability. I used this video to help: https://www.youtube.com/watch?v=Z7ycNfVJSJ4
 
@@ -279,9 +290,16 @@ I used 4 layers for this PCB to sort of dedicate each layer to a solid reference
 
 
 
-### Manufacturing in Shenzhen
+
+
+
+##5. Manufacturing in Shenzhen
 
 The PCB would be about 149.5mm x 137.0mm or about 5.9in x 5.4in. This is pretty large but this is quite a crude and very unpolished version in terms of
-optimizing space, traces, layers, etc.
+optimizing space, traces, layers, etc. Getting this manufactured in Shenzhen is should be easy. One company, NextPCB, is connected with Shenzhen Huaqiu Intelligent Connectivity, and lists its headquarters in Shenzhen. Seeed Studio Fusion is another Shenzhen based prototyping service that offers PCB manufacturing and PCB assembly as well as making custom parts.
 
 
+
+##6. 3D Printed Casing
+
+Ideally this mini project would be interfaced with a 3D printed casing to finish off the "spy camera" look. But, I did not create the model yet.
