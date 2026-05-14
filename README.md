@@ -133,11 +133,11 @@ For less traceable sources, I used a variety of resources to find these alternat
 <img width="1261" height="888" alt="image" src="https://github.com/user-attachments/assets/8dd7ad94-7d2d-44f0-be11-53f7d763d030" />
 
 
-This block diagram represents the major systems of this PCB. The power comes in as 5v into USB-C, which goes into a LiPo battery charging module. At that point, voltage drops to around a nominal value of 3.7V because of the MCP. This circuit is one way and therefore USB-C only charges the battery, not powering the ESP. The LiPo battery is rated to output around ___V, and is then passed through a 3.3V voltage regulator. I used the MAX604 LPO, which I'll explain later. The ESP32-S3-WROOM1 is the main controller which will operate fine from ~2.9-3.3V at __mA. 
+This block diagram represents the major systems of this PCB. The power comes in as 5v into USB-C, which goes into a LiPo battery charging module. At that point, voltage drops to around a nominal value of 3.7V because of the MCP. This circuit is one way and therefore USB-C only charges the battery, not powering the ESP. The LiPo battery is rated to output around 3.7V, and is then passed through a 3.3V voltage regulator. I used the MAX604 LPO, which I'll explain later. The ESP32-S3-WROOM1 is the main controller which will operate fine from ~2.9-3.3V at 500mA. 
 
 This PCB has two means of storage: A MicroSD, or eMMC. To keep the SD card separate from the BOM, I just used a MicroSD card detector. To keep the eMMC separate from the BOM, I used a custom eMMC footprint that I found off SnapMagic.
 
-For the camera module, I went with the OV2640 because it was the easiest camera to work with. It operatres fine under ___ which is what we expect to be at. The camera also supports 800×600 at 30 FPS, which is already much better than the requirements. 
+For the camera module, I went with the OV2640 because it was the easiest camera to work with. It operatres fine under ~1.7V-3.3V which is what we expect to be at. The camera also supports 800×600 at 30 FPS, which is already much better than the requirements. 
 
 Finally, we have three push switches for start/stop recording, boot, and reset.
 
@@ -147,6 +147,19 @@ Finally, we have three push switches for start/stop recording, boot, and reset.
 
 ## 3. Schematic Design
 
+Here are some youtube videos that I used to help along:
+
+-https://www.youtube.com/watch?v=-iZbwzr0dS8
+-https://www.youtube.com/shorts/hBdJ9uH2Yd4
+-https://www.youtube.com/watch?v=GRd9uTwg7r4
+-https://www.youtube.com/watch?v=S24RvYZWYUQ
+-https://www.youtube.com/watch?v=g40tUdjZ-Sk
+-https://www.youtube.com/watch?v=POPvclRAKOQ
+-https://www.youtube.com/watch?v=Ah65M31v87c
+
+
+
+
 
 ### USB-C Power Entry
 
@@ -154,7 +167,7 @@ Finally, we have three push switches for start/stop recording, boot, and reset.
 <img width="500" height="388" alt="image" src="https://github.com/user-attachments/assets/ae17c6a2-d1ae-4d19-ac5c-3ce5ce03ea7c" />
 
 
-The UCB_C_Receptable part is ____. I use 5k resistors as pull down for CC1 and CC2 per the datasheet. I use a USBC connector to protect the data lines and route it to D- and D+. The diode I use has a clamping voltage of 12v, so under normal 5v operations it doesn't activate, but in cases of voltage spikes, it'll short to ground. I use 4.7uF capacitors for decoupling per the datasheet. This is a recurring value throughout the pcb. 
+I use 5k resistors as pull down for CC1 and CC2 per the datasheet. I use a USBC connector to protect the data lines and route it to D- and D+. The diode I use has a clamping voltage of 12v, so under normal 5v operations it doesn't activate, but in cases of voltage spikes, it'll short to ground. I use 4.7uF capacitors for decoupling per the datasheet. This is a recurring value throughout the pcb. 
 
 
 
@@ -256,12 +269,19 @@ The bottom circuit is start/stop button. High is start, low is stop.
 
 Note: The biggest thing here is that I did not finish applying the routes.
 
+I used 4 layers for this PCB to sort of dedicate each layer to a solid reference plane, which should reduce noise and increase stability. I used this video to help: https://www.youtube.com/watch?v=Z7ycNfVJSJ4
+
+
 <img width="534" height="543" alt="image" src="https://github.com/user-attachments/assets/2ddb1cf7-ba6c-43f7-b03d-4893e59abe64" />
 
 
-The PCB would be about 149.5mil x 137.0mils
+<img width="780" height="562" alt="image" src="https://github.com/user-attachments/assets/30d4ab94-f8da-4984-801e-8e991735d262" />
 
 
 
+### Manufacturing in Shenzhen
+
+The PCB would be about 149.5mm x 137.0mm or about 5.9in x 5.4in. This is pretty large but this is quite a crude and very unpolished version in terms of
+optimizing space, traces, layers, etc.
 
 
