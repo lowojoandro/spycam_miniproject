@@ -292,7 +292,6 @@ I used 4 layers for this PCB to sort of dedicate each layer to a solid reference
 
 
 
-
 ## 6. Manufacturing in Shenzhen
 
 The PCB would be about 149.5mm x 137.0mm or about 5.9in x 5.4in. This is pretty large but this is quite a crude and very unpolished version in terms of
@@ -300,6 +299,6 @@ optimizing space, traces, layers, etc. Getting this manufactured in Shenzhen is 
 
 
 
-##6. 3D Printed Casing
+## 7. 3D Printed Casing
 
 Ideally this mini project would be interfaced with a 3D printed casing to finish off the "spy camera" look. But, I did not create the model yet.
