@@ -47,14 +47,85 @@ Finally, we have three push switches for start/stop recording, boot, and reset.
 ## 4. Schematic Design
 
 
-
-The schematic is divided into several major sections: power, ESP32-S3, camera interface, storage, and user controls. The power section includes USB-C input, LiPo charging, and 3.3 V regulation. The ESP32-S3 section contains the main microcontroller module and its required support connections. The camera section connects the OV2640 ribbon camera module to the ESP32-S3. The storage section includes both microSD and optional eMMC support.
-
+### USB-C Power Entry
 
 
+<img width="500" height="388" alt="image" src="https://github.com/user-attachments/assets/ae17c6a2-d1ae-4d19-ac5c-3ce5ce03ea7c" />
 
 
-The full KiCad schematic files can be found here:
+The UCB_C_Receptable part is ____. I use 5k resistors as pull down for CC1 and CC2 per the datasheet. I use a USBC connector to protect the data lines and route it to D- and D+. The diode I use has a clamping voltage of 12v, so under normal 5v operations it doesn't activate, but in cases of voltage spikes, it'll short to ground. I use 4.7uF capacitors for decoupling per the datasheet. This is a recurring value throughout the pcb. 
 
-```text
-hardware/kicad/
+
+
+### LiPo Charger / Connector
+
+
+<img width="521" height="555" alt="image" src="https://github.com/user-attachments/assets/8ce0ed01-6c61-4032-b262-ecc1e221afaf" />
+
+
+For LiPo charger, the MCP73 is preferable because it operates at 4.2V, which gets me closer to the 3.3V when it finally reaches the LDO. Also it takes in 5v input and 400-1000mA, >500mA and 5v. I put a note on R4 because it connect to PROG, which regulates how fast you're charging. The higher the R, the slower it charges. It may be preferable to charge slower to prevent spiking. The LED is there to show charging status. Again, we have decoupling capacitors at the input V and output V. 
+
+
+
+
+### Battery
+
+
+<img width="480" height="448" alt="image" src="https://github.com/user-attachments/assets/e791f2d8-1fc0-43c8-8a7a-67c80b3fda71" />
+
+
+The battery is a single cell LiPo battery that connects to a single pole, single throw switch for simplicity. The 25k is for protection before entering at nominal voltage 3.7V. Then, we have a MOSFET which is controlled by the SPST switch. t takes in 5v input and 400-1000mA, and is a lipo charger. So it basically meets what we need which is >500mA and 5v. 
+
+
+
+### 3.3V LDO
+
+
+<img width="500" height="340" alt="image" src="https://github.com/user-attachments/assets/bc3afa20-1aab-48d9-91b0-1a318f939aae" />
+
+
+You could go a lot of different routes for the regulator. The goal is to minimize the quiescent current and also the low dropout. The TPS783xx part is commony used to deal with quiescent Current but won't be viable for this pcb. I ended up sticking with the MAX604 because although it has a droupout V of 840V at 400mA, I'll get a Vout of around 2.9-3.0V, assuming our nominal aperage is 500mA, which the ESP32 can still run on (based on reddit posts). The values for the decoupling capacitors are 10uF per the datasheet.
+
+
+
+
+
+### ESP32-S3-WROOM-1
+
+
+<img width="431" height="511" alt="image" src="https://github.com/user-attachments/assets/5f878b4a-6c12-41bf-a982-c50d45718212" />
+
+
+I chose the S3-WROOM-1 bceause it has enough GPIO pins for the camera and storage connections. It also already has PSRAM and it's own crystal built so I wouldn't need to make one. Note that I dedicate a good portion of pins for the camera module so that it can run 8 bits, fulfilling the 480p 30fps requirement. This leaves very little space for the eMMC and I actually have to pin it on 4 bit mode. I can't use the other pins because they're dedicate for internal operations like booting and UART and such.
+
+
+
+### OV2640 Camera
+
+
+<img width="575" height="497" alt="image" src="https://github.com/user-attachments/assets/3f76741b-e935-428f-9739-98760a9ff699" />
+
+
+
+This is the standard camera that most people use for ESP32 projects. It operates at 3.3v, can output lower resolution video modes such as SVGA mode which si 800×600 at 30 FPS, which exceeds the project’s minimum 480p/30 FPS requirement. It also supports compressed output so it's less strenuous on memory. Note the pull down resistors. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
