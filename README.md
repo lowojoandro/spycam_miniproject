@@ -1,6 +1,7 @@
 # ESP32-S3 Spy Camera PCB
 
-This mini project is a custom PCB for a battery powered recording camera using an ESP32-S3. 
+This mini project is a custom PCB for a battery powered recording camera using an ESP32-S3.
+The download to the files are in the hardware folder.
 
 
 ## Main Requirements
@@ -32,12 +33,11 @@ This mini project is a custom PCB for a battery powered recording camera using a
 
 ### Normal Sourcing
 
-This table lists the current PCB components, estimated prices, and target pricing for keeping the project under the $25 BOM goal.
+This table lists the current PCB components, estimated prices, and target pricing for keeping the project under the $25 goal.
 This is NOT using parts sourced from China specifically.
 
 - **Current estimated total:** $43.21
 - **Target estimated total:** $16.86
-- **Target BOM goal:** under $25
 
 | Ref | Qty | Part / Value | Footprint | Unit Price | Extended | Target Extended | Source |
 |---|---:|---|---|---:|---:|---:|---|
@@ -293,7 +293,7 @@ I used 4 layers for this PCB to sort of dedicate each layer to a solid reference
 
 
 
-##5. Manufacturing in Shenzhen
+## 6. Manufacturing in Shenzhen
 
 The PCB would be about 149.5mm x 137.0mm or about 5.9in x 5.4in. This is pretty large but this is quite a crude and very unpolished version in terms of
 optimizing space, traces, layers, etc. Getting this manufactured in Shenzhen is should be easy. One company, NextPCB, is connected with Shenzhen Huaqiu Intelligent Connectivity, and lists its headquarters in Shenzhen. Seeed Studio Fusion is another Shenzhen based prototyping service that offers PCB manufacturing and PCB assembly as well as making custom parts.
