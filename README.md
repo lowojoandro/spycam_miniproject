@@ -1,4 +1,4 @@
-# ESP32-S3 Spy Camera PCB
+[bom_github_markdown.md](https://github.com/user-attachments/files/27755744/bom_github_markdown.md)# ESP32-S3 Spy Camera PCB
 
 This mini project is a custom PCB for a battery powered recording camera using an ESP32-S3. 
 
@@ -27,8 +27,76 @@ This mini project is a custom PCB for a battery powered recording camera using a
 
 ---
 
+## 1. Parts Table 
 
-## 3. Block Diagram
+
+This table lists the current PCB components, estimated prices, and target pricing for keeping the project under the $25 BOM goal.
+This NOT using parts sourced from China specifically.
+
+- **Current estimated total:** $43.21
+- **Target estimated total:** $16.86
+- **Target BOM goal:** under $25
+
+| Ref | Qty | Part / Value | Footprint | Unit Price | Extended | Target Extended | Source |
+|---|---:|---|---|---:|---:|---:|---|
+| BT1 | 1 | Battery_Cell | Battery:BatteryHolder_Keystone_103_1x20mm | $0.3600 | $0.3600 | $0.3600 |  |
+| C1,C2,C4 | 3 | 4u7 | Capacitor_SMD:C_0201_0603Metric | $0.0200 | $0.0600 | $0.0600 | [LCSC](https://www.lcsc.com/category/1142.html) |
+| C3,C7,C11,C14,C16 | 5 | 4.7uF | Capacitor_SMD:C_0201_0603Metric | $0.0200 | $0.1000 | $0.1000 | [LCSC](https://www.lcsc.com/category/1142.html) |
+| C5,C6 | 2 | 10uF | Capacitor_SMD:C_0201_0603Metric | $0.0300 | $0.0600 | $0.0600 | [LCSC](https://www.lcsc.com/category/1142.html) |
+| C8,C9,C10,C12,C13,C15,C18 | 7 | 100nF | Capacitor_SMD:C_0201_0603Metric | $0.0008 | $0.0056 | $0.0056 | [LCSC](https://www.lcsc.com/product-detail/C284966.html) |
+| CAM1 | 1 | OV2640 | OV2640:OV2640 | $10.10 | $10.10 | $10.10 | [LCSC](https://www.lcsc.com/product-detail/C359962.html) |
+| D1 | 1 | PESD5V0L1ULD | Diode_SMD:D_SOD-882D | $0.0980 | $0.0980 | $0.0980 | [LCSC](https://www.lcsc.com/product-detail/C85380.html) |
+| D2 | 1 | LED | LED_SMD:LED_1210_3225Metric | $0.0300 | $0.0300 | $0.0300 | [LCSC](https://www.lcsc.com/category/110.html) |
+| J1 | 1 | USB_C_Receptacle_USB2.0_16P | Connector_USB:USB_C_Receptacle_G-Switch_GT-USB-7010ASV | $0.1149 | $0.1149 | $0.1149 | [LCSC](https://www.lcsc.com/category/842.html) |
+| J2 | 1 | Micro_SD_Card_Det1 | Connector_Card:microSD_HC_Molex_104031-0811 | $0.6304 | $0.6304 | $0.6304 | [LCSC](https://www.lcsc.com/product-detail/C585350.html) |
+| Q1 | 1 | FDN340P | Package_TO_SOT_SMD:SOT-23 | $0.1763 | $0.1763 | $0.1763 | [LCSC](https://www.lcsc.com/product-detail/C75469.html) |
+| R1,R2 | 2 | 5000 | Resistor_SMD:R_01005_0402Metric | $0.0200 | $0.0400 | $0.0400 | [Mouser](https://www.mouser.com/c/passive-components/resistors/film-resistors/thick-film-resistors-smd/?case+code+-+in=01005&resistance=10+kOhms) |
+| R3 | 1 | 0 | Resistor_SMD:R_0805_2012Metric | $0.0100 | $0.0100 | $0.0100 | [LCSC](https://www.lcsc.com/category/439.html) |
+| R4 | 1 | 2k | Resistor_SMD:R_01005_0402Metric | $0.0200 | $0.0200 | $0.0200 | [Mouser](https://www.mouser.com/c/passive-components/resistors/film-resistors/thick-film-resistors-smd/?case+code+-+in=01005&resistance=10+kOhms) |
+| R5 | 1 | 470R | Resistor_SMD:R_01005_0402Metric | $0.0200 | $0.0200 | $0.0200 | [Mouser](https://www.mouser.com/c/passive-components/resistors/film-resistors/thick-film-resistors-smd/?case+code+-+in=01005&resistance=10+kOhms) |
+| R6 | 1 | 25k | Resistor_SMD:R_01005_0402Metric | $0.0200 | $0.0200 | $0.0200 | [Mouser](https://www.mouser.com/c/passive-components/resistors/film-resistors/thick-film-resistors-smd/?case+code+-+in=01005&resistance=10+kOhms) |
+| R7,R9,R10,R11,R12,R13,R14,R15 | 8 | 10k | Resistor_SMD:R_01005_0402Metric | $0.0200 | $0.1600 | $0.1600 | [Mouser](https://www.mouser.com/c/passive-components/resistors/film-resistors/thick-film-resistors-smd/?case+code+-+in=01005&resistance=10+kOhms) |
+| R8 | 1 | 100R | Resistor_SMD:R_01005_0402Metric | $0.0200 | $0.0200 | $0.0200 | [Mouser](https://www.mouser.com/c/passive-components/resistors/film-resistors/thick-film-resistors-smd/?case+code+-+in=01005&resistance=10+kOhms) |
+| R16,R17 | 2 | 4.7k | Resistor_SMD:R_01005_0402Metric | $0.0200 | $0.0400 | $0.0400 | [Mouser](https://www.mouser.com/c/passive-components/resistors/film-resistors/thick-film-resistors-smd/?case+code+-+in=01005&resistance=10+kOhms) |
+| SW1 | 1 | SW_SPST | Button_Switch_SMD:SW_SPST_B3U-1000P-B | $0.1965 | $0.1965 | $0.1965 | [LCSC](https://www.lcsc.com/product-detail/C231329.html) |
+| SW2,SW3,SW4 | 3 | SW_Push | Button_Switch_SMD:SW_Push_1P1T_NO_CK_KSC6xxJ | $0.7400 | $2.22 | $0.2112 | [Mouser](https://www.mouser.com/c/electromechanical/switches/tactile-switches/?m=C%26K+Switches&series=KSC6) |
+| U1 | 1 | USBLC6-2SC6 | Package_TO_SOT_SMD:SOT-23-6 | $0.1523 | $0.1523 | $0.1523 | [LCSC](https://www.lcsc.com/product-detail/C7519.html) |
+| U2 | 1 | MCP73831-2-OT | Package_TO_SOT_SMD:SOT-23-5 | $0.3922 | $0.3922 | $0.3922 | [LCSC](https://www.lcsc.com/product-detail/C424093.html) |
+| U3 | 1 | MAX604 | Package_DIP:DIP-5-6_W7.62mm_Socket_LongPads | $8.11 | $8.11 | $0.0895 | [Mouser](https://www.mouser.com/c/semiconductors/power-management-ics/voltage-regulators-voltage-controllers/ldo-voltage-regulators/?series=MAX604) |
+| U4 | 1 | ESP32-S3-WROOM-1 | RF_Module:ESP32-S3-WROOM-1 | $3.75 | $3.75 | $3.75 | [LCSC](https://www.lcsc.com/product-detail/C2913199.html) |
+| U5 | 1 | EMMC08G-MB29-PM9B | EMMC08G-MB29-PM9B:BGA153N50P14X14_1300X1150X100N | $16.32 | $16.32 | $0.0000 | [Win Source](https://www.win-source.net/products/detail/kingston/emmc08g-mb29-pm9b.html) |
+
+
+
+
+### Sourcing from Shenzhen
+
+Most low-cost parts can be sourced through LCSC or similar Chinese electronics suppliers. The target total is lower than the current total because some high-cost or optional parts need cheaper substitutes or should be treated as optional, especially the eMMC and regulator choice. For the final version, the BOM should be checked against real supplier stock, package availability, and whether the selected footprint matches the part being ordered.github_markdown.md…]()
+
+
+
+
+
+
+
+
+
+
+
+### Sourcing
+
+I used a variety of resources to find these alternate parts and where to source them from. For one, this webiste https://www.travelchinaguide.com/cityguides/guangdong/shenzhen-electronics-malls.htm lists the 8 electronics malls in Shenzhen. Huaqiang obviously being the biggest, multiple youtube videos cite that vendors ____. This video from Lady Adafruit covers the book "
+
+
+
+
+
+
+
+---
+
+
+## 2. Block Diagram
 
 <img width="1261" height="888" alt="image" src="https://github.com/user-attachments/assets/8dd7ad94-7d2d-44f0-be11-53f7d763d030" />
 
@@ -44,7 +112,8 @@ Finally, we have three push switches for start/stop recording, boot, and reset.
 
 ---
 
-## 4. Schematic Design
+
+## 3. Schematic Design
 
 
 ### USB-C Power Entry
