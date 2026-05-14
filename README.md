@@ -107,20 +107,45 @@ I chose the S3-WROOM-1 bceause it has enough GPIO pins for the camera and storag
 
 
 
-This is the standard camera that most people use for ESP32 projects. It operates at 3.3v, can output lower resolution video modes such as SVGA mode which si 800×600 at 30 FPS, which exceeds the project’s minimum 480p/30 FPS requirement. It also supports compressed output so it's less strenuous on memory. Note the pull down resistors. 
+This is the standard camera that most people use for ESP32 projects, but the standard Kicad library didn't have the component. So, I found it on SnapMagic.com and imported it to kicad. The link is here: https://www.snapeda.com/parts/OV2640/Omnivision%20Technologies/view-part/?ref=search&t=OV2640%20camera&ab_test_case=b
+
+It operates at 3.3v, can output lower resolution video modes such as SVGA mode which si 800×600 at 30 FPS, which exceeds the project’s minimum 480p/30 FPS requirement. It also supports compressed output so it's less strenuous on memory. Note the pull down resistors. 
 
 
 
+### eMMC
+
+
+<img width="559" height="387" alt="image" src="https://github.com/user-attachments/assets/d7e73491-18f6-45bb-8a3d-410fb654aeda" />
+
+
+Similar to the camera, kicad didn't have the component, so I used this: https://www.snapeda.com/parts/EMMC08G-MB29-PM9B/Kingston/view-part/?company=N%2FA&amp;welcome=home&amp;ref=search&amp;t=eMMC&amp;ab_test_case=b
+
+There's multiple similar eMMCs but this one in particular seemed to be easier to source. Just as I noted in the schematic, the eMMC is on 4 bit mode because of the lack of GPIO pins. 
 
 
 
+### MicroSD detector
+
+
+<img width="694" height="392" alt="image" src="https://github.com/user-attachments/assets/6b0f0f58-ec69-4ff9-b27c-f752242620cd" />
 
 
 
+This is just a standard MicroSD detector. The footprint used however is Molex one because it seemed to be most common. The most important thing to note here is that I didn't actually wire this component (because lack of pins), effectively prioritizing the eMMC as the storage device. If instead we wanted the SD, then I would just replace the eMMC connections with the SD detector.
 
 
 
+### Buttons
 
+
+
+<img width="481" height="826" alt="image" src="https://github.com/user-attachments/assets/5ae11e23-5b90-4269-a05d-b10b508a96a6" />
+
+
+The top circuit is the button for the booting process. It connects to EN pin of the ESP32 and has an extra resistor to act as a pull down pin. 
+The middle circuit is the button for the manual download as well as reset
+The bottom circuit is start/stop button. High is start, low is stop.
 
 
 
