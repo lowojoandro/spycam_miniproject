@@ -1,4 +1,4 @@
-[bom_github_markdown.md](https://github.com/user-attachments/files/27755744/bom_github_markdown.md)# ESP32-S3 Spy Camera PCB
+# ESP32-S3 Spy Camera PCB
 
 This mini project is a custom PCB for a battery powered recording camera using an ESP32-S3. 
 
@@ -29,6 +29,8 @@ This mini project is a custom PCB for a battery powered recording camera using a
 
 ## 1. Parts Table 
 
+
+### Normal Sourcing
 
 This table lists the current PCB components, estimated prices, and target pricing for keeping the project under the $25 BOM goal.
 This NOT using parts sourced from China specifically.
@@ -71,21 +73,51 @@ This NOT using parts sourced from China specifically.
 
 ### Sourcing from Shenzhen
 
-Most low-cost parts can be sourced through LCSC or similar Chinese electronics suppliers. The target total is lower than the current total because some high-cost or optional parts need cheaper substitutes or should be treated as optional, especially the eMMC and regulator choice. For the final version, the BOM should be checked against real supplier stock, package availability, and whether the selected footprint matches the part being ordered.github_markdown.md…]()
+Almost all of the low cost parts can be sourced through LCSC.com or similar Chinese electronics suppliers. The target total is lower than the current total because some high cost or optional parts need cheaper substitutes or should be treated as optional, especially the eMMC and regulator.
+
+For less traceable sources, I used a variety of resources to find these alternate parts and where to source them from. For one, this webiste https://www.travelchinaguide.com/cityguides/guangdong/shenzhen-electronics-malls.htm lists the 8 electronics malls in Shenzhen. Huaqiang obviously being the biggest, multiple youtube videos cite what things vendors sell in particular markets. This video from Lady Adafruit covers the book "The Essential Guide to Electronics in Shenzhen", and also describes some parts she was able to buy and where, as well as some useful tips to sourcing the right part.
 
 
 
+| Build Option | Estimated Consumed BOM Cost |
+|---|---:|
+| All parts | $34.45 |
+| All parts w/ eMMC optional | $18.13 |
+| eMMC optional + AP2112K LDO substitute | $16.41 |
+
+
+**Note that although total cost is cheap, vendors probably won't sell you individual parts b/c of MOQ. This probably means you'd have to multiply the cheaper parts by 100 (e.g. buying 100 resistors). With MOQ, we can expect up to $100 total.
 
 
 
-
-
-
-
-
-### Sourcing
-
-I used a variety of resources to find these alternate parts and where to source them from. For one, this webiste https://www.travelchinaguide.com/cityguides/guangdong/shenzhen-electronics-malls.htm lists the 8 electronics malls in Shenzhen. Huaqiang obviously being the biggest, multiple youtube videos cite that vendors ____. This video from Lady Adafruit covers the book "
+| Ref | Qty | Value | Suggested Shenzhen Part | Supplier / Part # | Source | Unit Price | BOM Cost | Status |
+|---|---:|---|---|---|---|---:|---:|---|
+| BT1 | 1 | Battery_Cell | Keystone 103 | C238065 | [LCSC/JLC local China channel](https://www.lcsc.com/product-detail/BatteryConnector_Keystone-103_C238065.html) | $1.08 | $1.08 | Populate |
+| C1,C2,C4 | 3 | 4u7 | Murata GRM033R60J475ME05D / JLC equiv. | C3863497 | [JLCPCB SMT assembly](https://jlcpcb.com/partdetail/4431990-GRM033R60J475ME05D/C3863497) | $0.04 | $0.12 | Populate |
+| C3,C7,C11,C14,C16 | 5 | 4.7uF | Murata GRM033R60J475ME05D / JLC equiv. | C3863497 | [JLCPCB SMT assembly](https://jlcpcb.com/partdetail/4431990-GRM033R60J475ME05D/C3863497) | $0.04 | $0.20 | Populate |
+| C5,C6 | 2 | 10uF | JLC 0201 high-cap MLCC / verify exact PN | C9900079312 / verify | [JLCPCB SMT assembly / consign if needed](https://jlcpcb.com/partdetail/JLCPCBAssembly-BTR02D3/C9900079312) | $0.04 | $0.08 | Populate |
+| C8,C9,C10,C12,C13,C15,C18 | 7 | 100nF | FH 0201X104K100NT | C284966 | [LCSC](https://www.lcsc.com/product-detail/C284966.html) | $0.00 | $0.01 | Populate |
+| CAM1 | 1 | OV2640 | Waveshare OV2640 Camera Board | C359962 | [LCSC](https://www.lcsc.com/product-detail/C359962.html) | $10.10 | $10.10 | Populate |
+| D1 | 1 | PESD5V0L1ULD | LRC LESD8D5.0CAT5G | C172411 | [LCSC alternative](https://www.lcsc.com/product-detail/C172411.html) | $0.01 | $0.01 | Populate |
+| D2 | 1 | LED | Vishay SB1210WC01-RG or cheaper local 1210 LED | C6472940 | [LCSC / local HQB bin alternative](https://www.lcsc.com/product-detail/C6472940.html) | $0.31 | $0.31 | Populate |
+| J1 | 1 | USB_C_Receptacle_USB2.0_16P | G-Switch GT-USB-7010ASV | C2988369 | [LCSC](https://www.lcsc.com/product-detail/C2988369.html) | $0.08 | $0.08 | Populate |
+| J2 | 1 | Micro_SD_Card_Det1 | XKB Connectivity XKTF-015-N | C381082 | [LCSC](https://www.lcsc.com/product-detail/C381082.html) | $0.06 | $0.06 | Populate |
+| Q1 | 1 | FDN340P | TECH PUBLIC FDN340P | C2890122 | [LCSC](https://www.lcsc.com/product-detail/mosfets_tech-public-fdn340p_C2890122.html) | $0.06 | $0.06 | Populate |
+| R1,R2 | 2 | 5000 | Generic 01005 1% resistor / value match | BOM/RFQ | [LCSC RFQ / local reels](https://www.lcsc.com/product-detail/C2889342.html) | $0.00 | $0.01 | Populate |
+| R3 | 1 | 0 | YAGEO/UNI-ROYAL 0R 0805 | BOM/RFQ | [LCSC / local reels](https://www.lcsc.com/category/1199.html) | $0.00 | $0.00 | Populate |
+| R4 | 1 | 2k | Generic 01005 1% resistor / value match | BOM/RFQ | [LCSC RFQ / local reels](https://www.lcsc.com/product-detail/C2889342.html) | $0.00 | $0.00 | Populate |
+| R5 | 1 | 470R | Generic 01005 1% resistor / value match | BOM/RFQ | [LCSC RFQ / local reels](https://www.lcsc.com/product-detail/C2889342.html) | $0.00 | $0.00 | Populate |
+| R6 | 1 | 25k | Generic 01005 1% resistor / value match | BOM/RFQ | [LCSC RFQ / local reels](https://www.lcsc.com/product-detail/C2889342.html) | $0.00 | $0.00 | Populate |
+| R7,R9,R10,R11,R12,R13,R14,R15 | 8 | 10k | VO 0402 ±1% 10K / 01005 RFQ if keeping footprint | C2889342 / RFQ | [LCSC / RFQ](https://www.lcsc.com/product-detail/C2889342.html) | $0.00 | $0.01 | Populate |
+| R8 | 1 | 100R | Generic 01005 1% resistor / value match | BOM/RFQ | [LCSC RFQ / local reels](https://www.lcsc.com/category/1199.html) | $0.00 | $0.00 | Populate |
+| R16,R17 | 2 | 4.7k | Generic 01005 1% resistor / value match | BOM/RFQ | [LCSC RFQ / local reels](https://www.lcsc.com/category/1199.html) | $0.00 | $0.01 | Populate |
+| SW1 | 1 | SW_SPST | OMRON B3U-1000P | C231329 | [LCSC/JLCPCB](https://www.lcsc.com/product-detail/C231329.html) | $0.20 | $0.20 | Populate |
+| SW2,SW3,SW4 | 3 | SW_Push | CAX TS3425PA-3x4x2.5-160 | C51927438 | [LCSC](https://www.lcsc.com/product-detail/C51927438.html) | $0.04 | $0.13 | Populate |
+| U1 | 1 | USBLC6-2SC6 | TECH PUBLIC USBLC6-2SC6 | C2827654 | [LCSC](https://www.lcsc.com/product-detail/C2827654.html) | $0.04 | $0.04 | Populate |
+| U2 | 1 | MCP73831-2-OT | Microchip MCP73831T-2ACI/OT | C424093 | [LCSC](https://www.lcsc.com/product-detail/C424093.html) | $0.39 | $0.39 | Populate |
+| U3 | 1 | MAX604 | MAX604ESA+T / MAX604CSA+T from Alibaba, or AP2112K-3.3TRG1 substitute | Alibaba / C51118 | [Alibaba Shenzhen seller / LCSC substitute](https://m.alibaba.com/showroom/max604esa--t.html) | $1.88 | $1.88 | Populate |
+| U4 | 1 | ESP32-S3-WROOM-1 | ESP32-S3-WROOM-1-N8R8 | C2913201 | [LCSC](https://www.lcsc.com/product-detail/C2913201.html) | $3.36 | $3.36 | Populate |
+| U5 | 1 | EMMC08G-MB29-PM9B | Kingston EMMC08G-MB29-PM9B exact; Kioxia THGBMNG5D1LBAIL alt | Win-Source / C391255 | [Win-Source / LCSC alternative](https://www.win-source.net/products/detail/kingston/emmc08g-mb29-pm9b.html) | $16.32 | $16.32 | DNP / optional footprint |
 
 
 
@@ -218,6 +250,16 @@ The bottom circuit is start/stop button. High is start, low is stop.
 
 
 
+
+
+## 4. PCB Views
+
+Note: The biggest thing here is that I did not finish applying the routes.
+
+<img width="534" height="543" alt="image" src="https://github.com/user-attachments/assets/2ddb1cf7-ba6c-43f7-b03d-4893e59abe64" />
+
+
+The PCB would be about 149.5mil x 137.0mils
 
 
 
