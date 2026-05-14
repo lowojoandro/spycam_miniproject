@@ -1,0 +1,106 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "4326c49e-22fe-4bae-bfcb-9d0ebfb0ca27")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 111.76 41.91)
+		(size 58.42 50.8)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "0a2eb05f-d904-4c0c-a0ee-6c0fbbe35acd")
+		(property "Sheetname" "ESP32-S3"
+			(at 111.76 41.1984 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ESP32-S3.kicad_sch"
+			(at 111.76 93.2946 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "spycam_2"
+				(path "/4326c49e-22fe-4bae-bfcb-9d0ebfb0ca27"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 33.02 41.91)
+		(size 57.15 50.8)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "cd6fe535-0821-472f-a910-8e8e5c5f75b1")
+		(property "Sheetname" "Block Diagram"
+			(at 33.02 41.1984 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "BlockDiagram.kicad_sch"
+			(at 33.02 93.2946 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "spycam_2"
+				(path "/4326c49e-22fe-4bae-bfcb-9d0ebfb0ca27"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
